@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+    
+        <link rel="icon" type="image/x-icon" href="DINOSOFT-LOGO.jpg">
+        
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Share Dinosoft</title>
+    <style>
+        #text-box {
+            width: 920px;
+            height: 570px;
+            border: 1px solid #ccc;
+            padding: 10px;
+            margin-bottom: 10px;
+        }
+
+        #copy-button {
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+<center>
+    <center>
+        <h1>
+            Share Message
+        </h1>
+    </center>
+    <div id="text-box">
+
+<p>Dear [Friend's Name],</p>
+
+<p>I hope this letter finds you well and thriving in all your endeavors. I wanted to share something exciting with you that I recently stumbled upon, and I couldn't wait to tell you all about it. It's a website called Dinosoft, and trust me, it's a game-changer!</p>
+
+<p>Dinosoft (https://dinosoft23.github.io/Dinosoft/) is like a digital wonderland that brings together a fantastic array of features. Imagine having a place where you can unleash your creativity, engage in thrilling games, have meaningful chats, and harness the power of a comprehensive search engine – all in one spot. Well, Dinosoft makes that imagination a reality.</p>
+
+<p>One of the coolest features is the drawing pad. Whether you're an aspiring artist or just someone looking for a creative outlet, Dinosoft's drawing pad is a canvas waiting for your imagination to run wild. It's user-friendly, and you can create anything from simple doodles to intricate masterpieces. The possibilities are endless!</p>
+
+<p>But that's not all – Dinosoft is not just about art. It's a hub for games that cater to all tastes and preferences. Whether you're into strategy games, puzzles, or something more relaxing, Dinosoft has got it covered. I've already lost track of time playing some of the captivating games they offer.</p>
+
+<p>And when it comes to finding information, Dinosoft's search engine is efficient and reliable. No need to navigate away to look up something – it's all right there within the website.</p>
+
+<p>I don't want to give away all the surprises, so I encourage you to check out Dinosoft for yourself. I've had so much fun exploring its features, and I'm sure you'll find it just as delightful.</p>
+
+<p>Click here to visit Dinosoft <a href="https://dinosoft23.github.io/Dinosoft/">Visit Diosoft</a></p>
+
+<p>I hope you enjoy your journey into the world of Dinosoft as much as I have. Looking forward to hearing what you think</p>!
+
+<p>Best wishes,</p>
+
+<p>[Your Name]</p>
+    </div>
+    </center>
+    <center>
+    <button id="copy-button" onclick="copyText()"><h1>Copy Text</h1></button>
+    </center>
+    <script>
+        function copyText() {
+            var text = document.getElementById('text-box').innerText;
+
+            var tempInput = document.createElement('textarea');
+            tempInput.value = text;
+
+            document.body.appendChild(tempInput);
+
+            tempInput.select();
+            tempInput.setSelectionRange(0, 99999); /* For mobile devices */
+
+            document.execCommand('copy');
+
+            document.body.removeChild(tempInput);
+
+            alert('Text copied to clipboard!');
+        }
+    </script>
+
+</body>
+</html>
+
+<br>
+<br>
+<hr>
+<br>
+<br>
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+<body>
+<center>
+<h1>Photo Share</h1>
+<!-- Placeholder image element -->
+<img id="randomPhoto" src="message-image-to-share-dinosoft.png" alt="Random Photo">
+<br>
+<!-- Download link -->
+<a id="downloadLink" href="message-image-to-share-dinosoft.png" download="random_photo.jpg"><h1>Download Photo</h1></a>
+<br>
+<br>
+
+<!-- Copy link -->
+<button onclick="copyLink()"><h1>Copy Link</h1></button>
+<br>
+<script>
+  // Use your specific photo link
+  const photoLinks = [
+    'message-image-to-share-dinosoft.png'
+    // Add more links as needed
+  ];
+
+  // Function to update the image source and download link
+  function updatePhoto() {
+    const photoElement = document.getElementById('randomPhoto');
+    const downloadLink = document.getElementById('downloadLink');
+    const randomPhotoLink = photoLinks[0]; // Use the first link
+
+    photoElement.src = randomPhotoLink;
+    downloadLink.href = randomPhotoLink;
+  }
+
+  // Function to copy the photo link
+  function copyLink() {
+    const randomPhotoLink = photoLinks[0]; // Use the first link
+    const textArea = document.createElement('textarea');
+    textArea.value = randomPhotoLink;
+    document.body.appendChild(textArea);
+    textArea.select();
+    document.execCommand('copy');
+    document.body.removeChild(textArea);
+
+    alert('Link copied to clipboard!');
+  }
+
+  // Initial update on page load
+  updatePhoto();
+</script>
+</center>
+</body>
+</html>
+
+
+<br>
+<br>
+<hr>
+<br>
+<br>
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+<body>
+<center>
+<h1>Photo Share</h1>
+<!-- Placeholder image element -->
+<img id="randomPhoto" src="qr-code-to-share-dinosoft.png" alt="Random Photo">
+<br>
+<br>
+<!-- Download link -->
+<a id="downloadLink" href="qr-code-to-share-dinosoft.png" download="random_photo.jpg"><h1>Download Photo</h1></a>
+<br>
+<br>
+<br>
+<script>
+  // Use your specific photo link
+  const photoLinks = [
+    'qr-code-to-share-dinosoft.png'
+    // Add more links as needed
+  ];
+
+  // Function to update the image source and download link
+  function updatePhoto() {
+    const photoElement = document.getElementById('randomPhoto');
+    const downloadLink = document.getElementById('downloadLink');
+    const randomPhotoLink = photoLinks[0]; // Use the first link
+
+    photoElement.src = randomPhotoLink;
+    downloadLink.href = randomPhotoLink;
+  }
+
+  // Function to copy the photo link
+  function copyLink() {
+    const randomPhotoLink = photoLinks[0]; // Use the first link
+    const textArea = document.createElement('textarea');
+    textArea.value = randomPhotoLink;
+    document.body.appendChild(textArea);
+    textArea.select();
+    document.execCommand('copy');
+    document.body.removeChild(textArea);
+
+    alert('Link copied to clipboard!');
+  }
+
+  // Initial update on page load
+  updatePhoto();
+</script>
+</center>
+</body>
+</html>
+
+
+<br>
+<br>
+<hr>
+<br>
+<br>
+<center>
+<a href="https://github.com/Dinosoft23/Dinosoft"><h1>Visit Dinosoft Github Repository</h1> </a>
+</center>

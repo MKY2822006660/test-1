@@ -1,0 +1,593 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="icon" type="image/x-icon" href="https://i.ibb.co/VmZLnr1/icon-12.jpg">    <body>
+        <html>
+          <html>
+            <head>
+            
+              <link rel="icon" type="image/x-icon" href="DINOSOFT-LOGO.jpg">
+              
+            <body>
+            
+            </body>
+            </html>
+    </body>
+</head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Mohammed Yousef | Dinosoft Founder</title>
+<style>
+    /* Your existing CSS styles */
+    @import url("https://fonts.googleapis.com/css?family=Raleway:400");
+
+    h5 {
+    text-align: justify;
+}
+
+div.a {
+  text-indent: 50px;
+}
+    
+    
+    * {
+        box-sizing: border-box;
+    }
+
+    @property --angle {
+        syntax: '<angle>';
+        initial-value: 90deg;
+        inherits: true;
+    }
+
+    @property --gradX {
+        syntax: '<percentage>';
+        initial-value: 50%;
+        inherits: true;
+    }
+
+    @property --gradY {
+        syntax: '<percentage>';
+        initial-value: 0%;
+        inherits: true;
+    }
+
+    body {
+        font-family: Raleway, sans-serif;
+        text-align: center;
+        margin: 0;
+        padding: 1rem;
+        background-color: rgba(10, 12, 18, 1);
+        color: white;
+        min-height: 100vh;
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+        justify-content: center;
+    }
+    
+    
+    #blur {
+        font-size: 40px;
+        color: transparent;
+        text-shadow: 0 0 10px #000;
+      }
+      
+
+    p {
+        margin: 0;
+    }
+
+    :root {
+        --d: 2500ms;
+        --angle: 90deg;
+        --gradX: 100%;
+        --gradY: 50%;
+        --c1: rgba(168, 239, 255, 1);
+        --c2: rgba(168, 239, 255, 0.1);
+    }
+
+    .wrapper {
+        min-width: min(40rem, 100%);
+    }
+
+    .box {
+        font-size: 3vw;
+        margin: max(1rem, 3vw);
+        padding: 3vw;
+        border: 0.35rem solid transparent;
+        border-image: conic-gradient(from var(--angle), var(--c2), var(--c1) 0.1turn, var(--c1) 0.15turn, var(--c2) 0.25turn) 30;
+        animation: borderRotate var(--d) linear infinite forwards;
+        overflow: auto;
+        position: relative;
+        display: flex;
+        align-items: flex-start; /* Adjusted */
+    }
+
+    .image-container {
+        width: 30%; /* Adjust as needed */
+        margin-right: 20px; /* Added */
+    }
+
+    .image-container img {
+        width: 100%;
+        display: block;
+    }
+
+    .text-container {
+        width: 70%; /* Adjust as needed */
+    }
+
+    .text {
+        font-size: 1rem;
+    }
+
+    .box:nth-child(2) {
+        border-image: radial-gradient(ellipse at var(--gradX) var(--gradY), var(--c1), var(--c1) 10%, var(--c2) 40%) 30;
+        animation: borderRadial var(--d) linear infinite forwards;
+    }
+
+    @keyframes borderRotate {
+        100% {
+            --angle: 420deg;
+        }
+    }
+
+    @keyframes borderRadial {
+        20% {
+            --gradX: 100%;
+            --gradY: 50%;
+        }
+        40% {
+            --gradX: 100%;
+            --gradY: 100%;
+        }
+        60% {
+            --gradX: 50%;
+            --gradY: 100%;
+        }
+        80% {
+            --gradX: 0%;
+            --gradY: 50%;
+        }
+        100% {
+            --gradX: 50%;
+            --gradY: 0%;
+        }
+    }
+
+
+
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background: #212121;
+  min-height: 100dvh;
+  width: 100%;
+  display: flex;
+  gap: 50px;
+  flex-wrap: wrap;
+  padding: 30px;
+  justify-content: center;
+  align-items: center;
+}
+
+.card {
+  position: relative;
+  height: 300px;
+  width: 230px;
+  
+  &:nth-child(2) {
+    filter: hue-rotate(300deg) brightness(1.3);
+  }
+  &:nth-child(3) {
+    filter: hue-rotate(200deg) brightness(1.5);
+  }
+  &:nth-child(4) {
+    filter: hue-rotate(60deg) brightness(3);
+  }
+  .boxshadow {
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    border: 1px solid red;
+    transform: scale(0.8);
+    box-shadow: rgba(255, 0, 0, 1) 0px 30px 70px 0px;
+    transition: all 0.5s cubic-bezier(0.785, 0.135, 0.15, 0.86);
+  }
+
+  .main {
+    width: 230px;
+    height: 300px;
+    overflow: hidden;
+    background: red;
+    background: linear-gradient(
+      0deg,
+      rgb(62, 0, 0) 0%,
+      rgba(255, 0, 0, 1) 60%,
+      rgb(62, 0, 0) 100%
+    );
+    position: relative;
+    clip-path: polygon(
+      0 0,
+      100% 0,
+      100% 40px,
+      100% calc(100% - 40px),
+      calc(100% - 40px) 100%,
+      40px 100%,
+      0 calc(100% - 40px)
+    );
+    box-shadow: rgba(255, 0, 0, 1) 0px 7px 29px 0px;
+    transition: all 0.3s cubic-bezier(0.785, 0.135, 0.15, 0.86);
+  
+    .top {
+      position: absolute;
+      top: 0px;
+      left: 0;
+      width: 0px;
+      height: 0px;
+      z-index: 2;
+      border-top: 115px solid black;
+      border-left: 115px solid transparent;
+      border-right: 115px solid transparent;
+      transition: all 0.5s cubic-bezier(0.785, 0.135, 0.15, 0.86);
+    }
+  
+    .side {
+      position: absolute;
+      width: 100%;
+      top: 0;
+      transform: translateX(-50%);
+      height: 101%;
+      background: black;
+      clip-path: polygon(0% 0%, 50% 0, 95% 45%, 100% 100%, 0% 100%);
+      transition: all 0.5s cubic-bezier(0.785, 0.135, 0.15, 0.86) 1s;
+    }
+  
+    .left {
+      left: 0;
+    }
+    .right {
+      right: 0;
+      transform: translateX(50%) scale(-1, 1);
+    }
+  
+    .title {
+      position: absolute;
+      left: 50%;
+      transform: translateX(-50%);
+      top: 90px;
+      font-weight: bold;
+      font-size: 25px;
+      opacity: 0;
+      z-index: -1;
+      transition: all 0.2s ease-out 0s;
+    }
+  
+    .button-container {
+      position: absolute;
+      bottom: 10px;
+      left: 50%;
+      transform: translateX(-50%);
+  
+      .button {
+        position: absolute;
+        transform: translateX(-50%);
+        padding: 5px 10px;
+        clip-path: polygon(0 0, 100% 0, 81% 100%, 21% 100%);
+        background: black;
+        border: none;
+        color: white;
+        display: grid;
+        place-content: center;
+        transition: all 0.5s cubic-bezier(0.785, 0.135, 0.15, 0.86);
+        .svg {
+          width: 15px;
+          transition: all 0.2s cubic-bezier(0.785, 0.135, 0.15, 0.86);
+        }
+  
+        &:nth-child(1) {
+          bottom: 300px;
+          transition-delay: 0.4s;
+        }
+        &:nth-child(2) {
+          bottom: 300px;
+          transition-delay: 0.6s;
+        }
+        &:nth-child(3) {
+          bottom: 300px;
+          transition-delay: 0.8s;
+        }
+  
+        &:hover {
+          .svg {
+            transform: scale(1.2);
+          }
+        }
+  
+        &:active {
+          .svg {
+            transform: scale(0.7);
+          }
+        }
+      }
+    }
+  }
+}
+
+
+.card {
+  &:hover {
+    .main {
+      transform: scale(1.1);
+      .top {
+        top: -50px;
+      }
+      .left {
+        left: -50px;
+        transition: all 0.5s cubic-bezier(0.785, 0.135, 0.15, 0.86) 0.1s;
+      }
+      .right {
+        right: -50px;
+        transition: all 0.5s cubic-bezier(0.785, 0.135, 0.15, 0.86) 0.1s;
+      }
+      .title {
+        opacity: 1;
+        transition: all 0.2s ease-out 1.3s;
+      }
+
+      .button-container {
+        .button {
+          &:nth-child(1) {
+            bottom: 80px;
+            transition-delay: 0.8s;
+          }
+          &:nth-child(2) {
+            bottom: 40px;
+            transition-delay: 0.6s;
+          }
+          &:nth-child(3) {
+            bottom: 0;
+            transition-delay: 0.4s;
+          }
+        }
+      }
+    }
+  }
+}
+</style>
+
+
+
+</head>
+<body>
+
+            
+            <div class="wrapper">
+    <div class="box">
+        <div class="image-container">
+            <img src="https://codehs.com/uploads/ddd261d9da3963f31fca391852c7facd" alt="" style="width:310px;height:590;">
+            
+            <img src="https://i.ibb.co/JzZM2sw/Untitled-presentation-2.png" alt="" style="width:310px;height:3170px;">
+
+
+        </div>
+        <div class="text-container">
+            <div class="text">
+                <br>
+                <br>
+                <h3>-Name: Mohammed Yousef</h3>
+                <h3>-Nationality: Egyption</h3>
+                <h3>-Current Living Place: East Lansing, Michingan, USA</h3>
+                <h3>-Age: <i> #/##/####  </i></h3> 
+                <h3>-Email:    <a href= "mailto: Mohammed.K.Yousef2434@gmail.com">Mohammed.K.Yousef2434@gmail.com</a></h3>
+                <h3>-Gender: Male</h3>
+                <h3>-Favourite Sport: Basketball and Football</h3>
+                <h3>-Favoutite Color(s): Navy and dark blue</h3>
+                <h3>-Future job: Computer Science Professional</h3>
+                <h3>-Favourite Food: <a href="https://en.wikipedia.org/wiki/Hamburger">Hamburgers</a></h3>
+
+
+
+
+            </div>
+            
+            
+<br>
+<hr>
+<br>
+ 
+            <center>
+                <h2>Developer Biography
+</h2>
+<br>
+
+            <h5>      I'm Mohammed Yousef, the visionary behind Dinosoft. Originally from Egypt, I found myself traversing continents to the United States due to my parents' professional pursuits. Amidst this journey, my passion for programming ignited, leading me to enroll in three transformative courses at the esteemed MSU faculty.
+<br>
+<br>
+My educational journey commenced with a dive into the realms of programming languages. From mastering the intricacies of Python to delving into the markup language of HTML, each course added a layer of expertise to my skill set. It was during my HTML course that the seeds of Dinosoft were sown. What started as a modest final project evolved into a burgeoning venture, albeit in its nascent form.
+<br>
+<br>
+The early iteration of Dinosoft, while functional, lacked the finesse I envisioned. Determined to refine its aesthetics and functionality, I embarked on a quest to enhance its user experience. Constantly seeking inspiration from platforms like Codepen and Github, I honed my craft, with HTML becoming my playground of choice.
+<br>
+<br>
+Despite completing the course, my journey with HTML didn't end; it blossomed into a fervent affair. The allure of crafting immersive web experiences kept me captivated, driving me to push boundaries and explore innovative techniques.
+<br>
+<br>
+Looking ahead, my aspirations transcend geographical boundaries. With a fervent desire to enrich my knowledge, I aim to pursue a Ph.D. in China, envisioning a future where academia and innovation converge seamlessly. Dinosoft remains the cornerstone of my ambitions, a canvas upon which I aspire to weave groundbreaking solutions and redefine digital paradigms.
+<br>
+<br>
+However, the path ahead is fraught with challenges. Dinosoft's evolution necessitates infrastructure enhancements beyond my current capabilities. The absence of a dedicated server hampers its potential, rendering the integration of APIs an arduous task. This realization underscores the imperative of fortifying Dinosoft's foundations, propelling it towards greater heights. Also, if you want to see how Dinosoft looked at the past, <a href="https://i.ibb.co/nPR8btc/version-1.png">Click here</a>  for the first version. <a href="https://i.ibb.co/cNdmKpg/version-2.png">Click here</a>  for the second version. Finally, <a href="https://i.ibb.co/W6Zgbkd/version-3.png">Click here</a> for the latest version
+
+
+
+<br>
+<br>
+In essence, my journey embodies a relentless pursuit of excellence, fueled by passion, perseverance, and an unwavering commitment to innovation. As I navigate the ever-changing landscape of technology, I remain steadfast in my resolve to sculpt Dinosoft into a beacon of ingenuity and excellence.
+<br>
+<br>
+
+Sincerely,<br>
+<br>
+Mohammed Yousef<br>
+<br>
+Founder of Dinosoft<br>
+<br></h5>
+</center>
+            
+            <img src="https://codehs.com/uploads/52ccece6caa1ee609d1c67a018067fd8" alt="Girl in a jacket" width="400" height="200">
+
+            
+            
+            <br>
+            <center>
+            <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <title>Title of the document</title>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+
+    <style>
+        body {
+            background-color: #000000;
+            padding: 80px 16px 16px 16px;
+        }
+
+        .social-buttons {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 8px;
+        }
+
+        .social-button {
+            position: relative;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            outline: none;
+            width: 64px;
+            height: 64px;
+            text-decoration: none;
+            border-radius: 100%;
+            background: #fff;
+            text-align: center;
+        }
+
+        .social-button::after {
+            content: '';
+            position: absolute;
+            top: -1px;
+            left: 50%;
+            display: block;
+            width: 0;
+            height: 0;
+            border-radius: 100%;
+            transition: 0.3s;
+        }
+
+        .social-button:focus,
+        .social-button:hover {
+            color: #fff;
+        }
+
+        .social-button:focus::after,
+        .social-button:hover::after {
+            width: calc(100% + 2px);
+            height: calc(100% + 2px);
+            margin-left: calc(-50% - 1px);
+        }
+
+        .social-button i,
+        .social-button svg {
+            position: relative;
+            z-index: 1;
+            transition: 0.3s;
+        }
+
+        .social-button i {
+            font-size: 25.6px; /* 64px * 0.4 */
+        }
+
+        .social-button svg {
+            height: 25.6%; /* 64px * 0.4 */
+            width: 25.6%; /* 64px * 0.4 */
+        }
+
+        .social-button--facebook {
+            color: #3b5999;
+        }
+
+        .social-button--facebook::after {
+            background: #3b5999;
+        }
+
+        .social-button--linkedin {
+            color: #0077b5;
+        }
+
+        .social-button--linkedin::after {
+            background: #0077b5;
+        }
+
+        .social-button--snapchat {
+            color: #eec900;
+        }
+
+        .social-button--snapchat::after {
+            background: #eec900;
+        }
+
+        .social-button--github {
+            color: #6e5494;
+        }
+
+        .social-button--github::after {
+            background: #6e5494;
+        }
+
+        .social-button--codepen {
+            color: #212121;
+        }
+
+        .social-button--codepen::after {
+            background: #212121;
+        }
+    </style>
+</head>
+<body>
+    <div class="social-buttons">
+        <a href="www.linkedin.com/in/
+mohammed-yousef2024" class="social-button social-button--facebook" aria-label="Facebook">
+            <i class="fa fa-linkedin"></i>
+        </a>
+        <a href="https://i.ibb.co/DzHmCCL/74786.jpg" class="social-button social-button--linkedin" aria-label="LinkedIn">
+            <i class="fa fa-whatsapp"></i>
+        </a>
+        <a href="https://t.snapchat.com/crVUXDxz" class="social-button social-button--snapchat" aria-label="Snapchat">
+            <i class="fa fa-snapchat-ghost"></i>
+        </a>
+        <a href="https://github.com/MKY2822006660" class="social-button social-button--github" aria-label="GitHub">
+            <i class="fa fa-github"></i>
+        </a>
+        <a href="https://codepen.io/Mohammed-Yousef-the-lessful/" class="social-button social-button--codepen" aria-label="CodePen">
+            <i class="fa fa-codepen"></i>
+        </a>
+    </div>
+</body>
+</html>
+            </center>
+                </div>
+                    </div>
+</div>
+
+</body>
+</html>

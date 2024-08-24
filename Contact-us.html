@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="en">
+    <html>
+        <head>
+        
+          <link rel="icon" type="image/x-icon" href="DINOSOFT-LOGO.jpg">
+          
+        <body>
+        
+        </body>
+        </html>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="author" content="CodeHim">
+    <title>Responsive Contact Us Page Example</title>
+    <style>
+        /* General Styles */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            background-color: #f2f2f2;
+        }
+        header {
+            text-align: center;
+            padding: 50px 0;
+            background-color: #4CAF50;
+            color: white;
+        }
+        header h1 {
+            margin: 0;
+            font-size: 2.5em;
+        }
+        header p {
+            margin: 10px 0;
+            font-size: 1.2em;
+        }
+        .cd__action .cd__btn {
+            display: inline-block;
+            padding: 10px 20px;
+            margin-top: 20px;
+            background-color: #fff;
+            color: #4CAF50;
+            text-decoration: none;
+            border-radius: 5px;
+            border: 2px solid #fff;
+            transition: background-color 0.3s, color 0.3s;
+        }
+        .cd__action .cd__btn:hover {
+            background-color: #4CAF50;
+            color: #fff;
+            border: 2px solid #fff;
+        }
+        /* Contact Section Styles */
+        .section-header {
+            text-align: center;
+            padding: 50px 0;
+            background-color: #333;
+            color: white;
+        }
+        .section-header h2 {
+            margin: 0;
+            font-size: 2.5em;
+        }
+        .section-header p {
+            margin: 20px 0 0;
+            font-size: 1.2em;
+        }
+        .container {
+            width: 80%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        .row {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+        }
+        .contact-info,
+        .contact-form {
+            flex: 1;
+            min-width: 300px;
+            margin: 20px 10px;
+        }
+        .contact-info-item {
+            display: flex;
+            align-items: center;
+            margin-bottom: 20px;
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        .contact-info-icon {
+            font-size: 2em;
+            color: #4CAF50;
+            margin-right: 20px;
+        }
+        .contact-info-content h4 {
+            margin: 0 0 10px;
+            font-size: 1.2em;
+            color: #333;
+        }
+        .contact-info-content p {
+            margin: 0;
+            color: #666;
+        }
+        .contact-form h2 {
+            margin: 0 0 20px;
+            font-size: 2em;
+            color: #333;
+        }
+        .input-box {
+            position: relative;
+            margin-bottom: 30px;
+        }
+        .input-box input,
+        .input-box textarea {
+            width: 100%;
+            padding: 10px;
+            font-size: 1em;
+            border: none;
+            border-bottom: 2px solid #4CAF50;
+            outline: none;
+            resize: none;
+        }
+        .input-box span {
+            position: absolute;
+            left: 10px;
+            padding: 10px 0;
+            pointer-events: none;
+            font-size: 1em;
+            color: #666;
+            transition: 0.5s;
+        }
+        .input-box input:focus ~ span,
+        .input-box input:valid ~ span,
+        .input-box textarea:focus ~ span,
+        .input-box textarea:valid ~ span {
+            transform: translateY(-20px);
+            font-size: 0.8em;
+            color: #4CAF50;
+        }
+        .input-box input[type="submit"] {
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            cursor: pointer;
+            font-size: 1em;
+            padding: 10px;
+            border-radius: 5px;
+            transition: background-color 0.3s;
+        }
+        .input-box input[type="submit"]:hover {
+            background-color: #45a049;
+        }
+
+        /* Additional field styles */
+        .input-box:nth-child(3) textarea {
+            height: 360px; /* Three times the height of the original */
+        }
+    </style>
+    <script src="https://kit.fontawesome.com/c32adfdcda.js" crossorigin="anonymous"></script>
+</head>
+<body>
+
+
+    <main class="cd__main">
+        <section>
+            <div class="section-header">
+                <div class="container">
+                    <h2>Contact Us</h2>
+                    <p>Please fill out the form below, and our dedicated team will promptly reach out to assist you. We prioritize responding swiftly to ensure your needs are met efficiently. Thank you for your interest; we look forward to connecting with you soon!</p>
+                    <h3>Dinosoft Team</h3>
+                </div>
+            </div>
+            <div class="container">
+                <div class="row">
+                    <div class="contact-info">
+                        <div class="contact-info-item">
+                            <div class="contact-info-icon">
+                                <i class="fas fa-home"></i>
+                            </div>
+                            <div class="contact-info-content">
+                                <h4>Address</h4>
+                                <p>#### ABC Road,<br/> East Lansing, Michigan, <br/>#####</p>
+                            </div>
+                        </div>
+                        <div class="contact-info-item">
+                            <div class="contact-info-icon">
+                                <i class="fas fa-phone"></i>
+                            </div>
+                            <div class="contact-info-content">
+                                <h4>Phone</h4>
+                                <p>+1 (517)-123-4567</p>
+                            </div>
+                        </div>
+                        <div class="contact-info-item">
+                            <div class="contact-info-icon">
+                                <i class="fas fa-envelope"></i>
+                            </div>
+                            <div class="contact-info-content">
+                                <h4>Email</h4>
+                                <p>Mohammed.k.yousef2434@gmail.com</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="contact-form">
+                        <form action="https://formspree.io/f/mqazzebg" method="POST" id="contact-form">
+                            <h2>Send Message</h2>
+                            <div class="input-box">
+                                <span data-placeholder="Full Name">Full Name</span>
+                                <input type="text" name="name" required>
+                            </div>
+                            <div class="input-box">
+                                <span data-placeholder="Email">Email</span>
+                                <input type="email" name="email" required>
+                            </div>
+                            <div class="input-box">
+                                <span data-placeholder="Type your Message...">Type your Message...</span>
+                                <textarea name="message" required style="height: 120px;"></textarea>
+                            </div>
+                            <div class="input-box">
+                                <input type="submit" value="Send">
+                            </div>
+                        </form>
+                    </div>
+                    
+        </section>
+    </main>
+
+    <script>
+        // JavaScript to handle placeholder animation
+        const inputFields = document.querySelectorAll('.input-box input, .input-box textarea');
+
+        inputFields.forEach(field => {
+            field.addEventListener('input', function() {
+                const placeholder = this.parentElement.querySelector('span');
+                if (this.value !== '') {
+                    placeholder.style.transform = 'translateY(-28px)';
+                    placeholder.style.fontSize = '0.8em';
+                    placeholder.style.color = '#4CAF50';
+                } else {
+                    placeholder.style.transform = 'none';
+                    placeholder.style.fontSize = '1em';
+                    placeholder.style.color = '#666';
+                }
+            });
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,385 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+    
+        <link rel="icon" type="image/x-icon" href="DINOSOFT-LOGO.jpg">
+        
+        <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Data Maker | Dinosoft</title>
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+</head>
+<body>
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-12">
+                <!-- Student Information Section -->
+                <h3 class="card-header bg-dark text-white mt-4">Enter Student(s) Information</h3>
+                <form id="studentForm">
+                    <br>
+                    <br>
+
+                    <!-- Student Number Field -->
+                    <div class="form-group">
+                        <label for="studentNum">Student Number</label>
+                        <input type="text" name="num" id="studentNum" placeholder="0000-" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm" pattern="[0-9]*">
+                    </div>
+
+                    <!-- Other Student Information Fields -->
+                    <div class="form-group">
+                        <label for="fName">First Name</label>
+                        <input type="text" name="firstName" class="form-control" id="fName" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="lName">Last Name</label>
+                        <input type="text" name="lastName" class="form-control" id="lName" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm">
+                    </div>
+                    
+                     <!-- Gender Selection -->
+                    <div class="form-group mt-4">
+                        <label for="gender">Gender</label>
+                        <select class="form-control" id="gender" onchange="changeProfileImage()">
+                            <option value="male">Male</option>
+                            <option value="female">Female</option>
+                            <option value="other">Other</option>
+                        </select>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="grade">Grade</label>
+                        <select class="form-control" id="grade">
+                            <option value="epk">EPK</option>
+                            <option value="kindergarten">Kindergarten</option>
+                            <option value="grade1">Grade 1</option>
+                            <option value="grade2">Grade 2</option>
+                            <option value="grade3">Grade 3</option>
+                            <option value="grade4">Grade 4</option>
+                            <option value="grade5">Grade 5</option>
+                            <option value="grade6">Grade 6</option>
+                            <option value="grade7">Grade 7</option>
+                            <option value="grade8">Grade 8</option>
+                            <option value="grade9">Grade 9</option>
+                            <option value="grade10">Grade 10</option>
+                            <option value="grade11">Grade 11</option>
+                            <option value="grade12">Grade 12</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="sID">Student ID</label>
+                        <input type="text" name="idstudent" class="form-control" maxlength="12" id="sID" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="comments">Comments</label>
+                        <textarea class="form-control" id="comments" rows="3"></textarea>
+                    </div>
+
+                    <button type="submit" class="btn btn-primary">Add Student</button>
+                    <button type="button" class="btn btn-secondary" id="saveData" disabled>Save</button> <!-- Added Save button -->
+                </form>
+            </div>
+        </div>
+        <div class="row mt-4">
+            <div class="col-sm-12">
+                <div class="card">
+                    <h5 class="card-header bg-dark text-white">Student Datas</h5>       
+                    <table class="table table-hover table-dark studentData">
+                        <thead>
+                            <tr>
+                                <th scope="col">Profile</th>
+                                <th scope="col">Student #</th>
+                                <th scope="col">First Name</th>
+                                <th scope="col">Last Name</th>
+                                <th scope="col">Grade</th>
+                                <th scope="col">Student ID</th>
+                                <th scope="col">Comments</th>
+                                <th scope="col">Action</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <!-- Table body will be dynamically updated with user input -->
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+        <div class="row mt-4">
+            <div class="col-sm-12">
+                <center>
+                <button class="btn btn-primary" id="sendEmail">Compose an Email</button>
+                </center>
+                <br>
+                <br>
+            </div>
+        </div>
+    </div>
+
+    <!-- Bootstrap JS and jQuery -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.3/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+    <!-- Modal for editing student information -->
+    <div class="modal fade" id="editModal" tabindex="-1" role="dialog" aria-labelledby="editModalLabel" aria-hidden="true">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="editModalLabel">Edit Student Information</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+            <form id="editForm">
+              <div class="form-group">
+                <label for="editStudentNum">Student Number</label>
+                <input type="text" name="num" id="editStudentNum" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm" pattern="[0-9]*">
+              </div>
+              <div class="form-group">
+                <label for="editFName">First Name</label>
+                <input type="text" name="firstName" class="form-control" id="editFName" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm">
+              </div>
+              <div class="form-group">
+                <label for="editLName">Last Name</label>
+                <input type="text" name="lastName" class="form-control" id="editLName" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm">
+              </div>
+              <div class="form-group mt-4">
+                <label for="editGender">Gender</label>
+                <select class="form-control" id="editGender">
+                  <option value="male">Male</option>
+                  <option value="female">Female</option>
+                  <option value="other">Other</option>
+                </select>
+              </div>
+              <div class="form-group">
+                <label for="editGrade">Grade</label>
+                <select class="form-control" id="editGrade">
+                  <option value="epk">EPK</option>
+                  <option value="kindergarten">Kindergarten</option>
+                  <option value="grade1">Grade 1</option>
+                  <option value="grade2">Grade 2</option>
+                  <option value="grade3">Grade 3</option>
+                  <option value="grade4">Grade 4</option>
+                  <option value="grade5">Grade 5</option>
+                  <option value="grade6">Grade 6</option>
+                  <option value="grade7">Grade 7</option>
+                  <option value="grade8">Grade 8</option>
+                  <option value="grade9">Grade 9</option>
+                  <option value="grade10">Grade 10</option>
+                  <option value="grade11">Grade 11</option>
+                  <option value="grade12">Grade 12</option>
+                </select>
+              </div>
+              <div class="form-group">
+                <label for="editSID">Student ID</label>
+                <input type="text" name="idstudent" class="form-control" maxlength="12" id="editSID" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm">
+              </div>
+              <div class="form-group">
+                <label for="editComments">Comments</label>
+                <textarea class="form-control" id="editComments" rows="3"></textarea>
+              </div>
+              <input type="hidden" id="editRowIndex">
+              <button type="submit" class="btn btn-primary">Save Changes</button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script>
+        // Function to change profile image based on selected gender
+        function changeProfileImage() {
+            var selectedGender = document.getElementById("gender").value;
+            var profileImage = document.getElementById("profileImage");
+
+            if (selectedGender === "male") {
+                profileImage.src = "https://i.ibb.co/CKNsK0C/OIP-34-removebg-preview.png";
+            } else if (selectedGender === "female") {
+                profileImage.src = "https://i.ibb.co/KWmBX8T/OIP-35-removebg-preview.png";
+            } else {
+                profileImage.src = "https://i.ibb.co/k5Kxxk6/cropped-OIP-36.jpg";
+            }
+        }
+
+        $(document).ready(function() {
+            // Function to update table with user input
+            function updateTable() {
+                var studentNum = $("#studentNum").val();
+                var firstName = $("#fName").val();
+                var lastName = $("#lName").val();
+                var grade = $("#grade").val();
+                var studentID = $("#sID").val();
+                var comments = $("#comments").val();
+                var gender = $("#gender").val();
+                var profileImageURL = '';
+
+                if (gender === "male") {
+                    profileImageURL = "https://i.ibb.co/CKNsK0C/OIP-34-removebg-preview.png";
+                } else if (gender === "female") {
+                    profileImageURL = "https://i.ibb.co/KWmBX8T/OIP-35-removebg-preview.png";
+                } else {
+                    profileImageURL = "https://i.ibb.co/4FSYxVX/cropped-OIP-36-modified.png";
+                }
+
+                // Append a new row to the table body
+                $(".studentData tbody").append(`
+                    <tr>
+                        <td><img src="${profileImageURL}" alt="Profile Image" width="30" height="30"></td>
+                        <td>${studentNum}</td>
+                        <td>${firstName}</td>
+                        <td>${lastName}</td>
+                        <td>${grade}</td>
+                        <td>${studentID}</td>
+                        <td>${comments}</td>
+                        <td>
+                            <button class="btn btn-danger btn-sm delete-row">Delete</button>
+                            <button class="btn btn-primary btn-sm edit-row">Edit</button>
+                        </td>
+                    </tr>
+                `);
+
+                // Clear input fields after updating table
+                $("#studentNum").val("");
+                $("#fName").val("");
+                $("#lName").val("");
+                $("#grade").val("epk");
+                $("#sID").val("");
+                $("#comments").val("");
+
+                // Enable the save button
+                $("#saveData").prop("disabled", false);
+            }
+
+            // Event listener for form submission
+            $("#studentForm").submit(function(event) {
+                event.preventDefault();
+                updateTable();
+            });
+
+            // Event listener for delete button click
+            $(".studentData").on("click", ".delete-row", function() {
+                $(this).closest("tr").remove();
+                updateLocalStorage(); // Update local storage after deletion
+            });
+
+            // Event listener for edit button click
+            $(".studentData").on("click", ".edit-row", function() {
+                var row = $(this).closest("tr");
+                var rowIndex = row.index();
+                var studentNum = row.find("td:eq(1)").text();
+                var firstName = row.find("td:eq(2)").text();
+                var lastName = row.find("td:eq(3)").text();
+                var grade = row.find("td:eq(4)").text();
+                var studentID = row.find("td:eq(5)").text();
+                var comments = row.find("td:eq(6)").text();
+                var gender = row.find("td:eq(7)").text().trim();
+                var profileImageURL = row.find("td:eq(0) img").attr("src");
+
+                // Populate the modal with existing data
+                $("#editStudentNum").val(studentNum);
+                $("#editFName").val(firstName);
+                $("#editLName").val(lastName);
+                $("#editGrade").val(grade);
+                $("#editSID").val(studentID);
+                $("#editComments").val(comments);
+                $("#editGender").val(gender);
+                $("#editProfileImage").val(profileImageURL);
+
+                // Store the row index in a hidden field for later use
+                $("#editRowIndex").val(rowIndex);
+
+                // Show the modal
+                $("#editModal").modal("show");
+            });
+
+            // Event listener for form submission in edit modal
+            $("#editForm").submit(function(event) {
+                event.preventDefault();
+                var rowIndex = $("#editRowIndex").val();
+                var studentNum = $("#editStudentNum").val();
+                var firstName = $("#editFName").val();
+                var lastName = $("#editLName").val();
+                var grade = $("#editGrade").val();
+                var studentID = $("#editSID").val();
+                var comments = $("#editComments").val();
+                var gender = $("#editGender").val();
+                var profileImageURL = $("#editProfileImage").val();
+
+                // Update the corresponding row in the table
+                $(".studentData tbody tr").eq(rowIndex).find("td:eq(0) img").attr("src", profileImageURL);
+                $(".studentData tbody tr").eq(rowIndex).find("td:eq(1)").text(studentNum);
+                $(".studentData tbody tr").eq(rowIndex).find("td:eq(2)").text(firstName);
+                $(".studentData tbody tr").eq(rowIndex).find("td:eq(3)").text(lastName);
+                $(".studentData tbody tr").eq(rowIndex).find("td:eq(4)").text(grade);
+                $(".studentData tbody tr").eq(rowIndex).find("td:eq(5)").text(studentID);
+                $(".studentData tbody tr").eq(rowIndex).find("td:eq(6)").text(comments);
+                $(".studentData tbody tr").eq(rowIndex).find("td:eq(7)").text(gender);
+
+                // Hide the modal
+                $("#editModal").modal("hide");
+
+                // Update local storage
+                updateLocalStorage();
+            });
+
+            // Function to update local storage
+            function updateLocalStorage() {
+                // Get all student data from table and update local storage
+                var studentData = [];
+                $(".studentData tbody tr").each(function() {
+                    var rowData = {
+                        "profileImageURL": $(this).find("td:eq(0) img").attr("src"),
+                        "studentNum": $(this).find("td:eq(1)").text(),
+                        "firstName": $(this).find("td:eq(2)").text(),
+                        "lastName": $(this).find("td:eq(3)").text(),
+                        "grade": $(this).find("td:eq(4)").text(),
+                        "studentID": $(this).find("td:eq(5)").text(),
+                        "comments": $(this).find("td:eq(6)").text(),
+                        "gender": $(this).find("td:eq(7)").text().trim()
+                    };
+                    studentData.push(rowData);
+                });
+                localStorage.setItem("studentData", JSON.stringify(studentData));
+            }
+
+            // Check if there is any existing data in local storage
+            var storedData = localStorage.getItem("studentData");
+            if (storedData) {
+                var parsedData = JSON.parse(storedData);
+                parsedData.forEach(function(rowData) {
+                    $(".studentData tbody").append(`
+                        <tr>
+                            <td><img src="${rowData.profileImageURL}" alt="Profile Image" width="30" height="30"></td>
+                            <td>${rowData.studentNum}</td>
+                            <td>${rowData.firstName}</td>
+                            <td>${rowData.lastName}</td>
+                            <td>${rowData.grade}</td>
+                            <td>${rowData.studentID}</td>
+                            <td>${rowData.comments}</td>
+                            <td>
+                                <button class="btn btn-danger btn-sm delete-row">Delete</button>
+                                <button class="btn btn-primary btn-sm edit-row">Edit</button>
+                            </td>
+                        </tr>
+                    `);
+                });
+            }
+
+            // Event listener for save button click to update local storage
+            $("#saveData").click(function() {
+                updateLocalStorage();
+                $(this).prop("disabled", true); // Disable the button after saving
+            });
+
+            // Event listener for send email button click
+            $("#sendEmail").click(function() {
+                var mailtoLink = "https://mail.google.com/";
+                window.open(mailtoLink, '_blank');
+            });
+        });
+    </script>
+</body>
+</html>

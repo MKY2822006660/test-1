@@ -1,0 +1,51 @@
+.text-container {
+    position: absolute;
+    top: 20%; /* Adjust the top value to move the text higher or lower */
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    color: #fff;
+    font-size: 36px;
+    height: 55vh;
+    width: 55vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  
+  .text-container {
+    height: 55vh;
+    width: 55vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .text-container h4{
+    margin: 0;
+    font-size: 110px;
+    color: rgba(225,225,225, .01);
+    background-image: url("https://th.bing.com/th/id/OIP.74L71QkmbtuQ3SsGuOJsOAHaEK?w=296&h=180&c=7&r=0&o=5&pid=1.7");
+    background-repeat: repeat;
+    -webkit-background-clip:text;
+    animation: animate 15s ease-in-out infinite;
+    text-align: center;
+    text-transform: uppercase;
+    font-weight: 900;
+  }
+  
+    @keyframes animate {
+      0%, 100% {
+        background-position: left top;
+      }
+      25%{
+        background-position: right bottom;
+       }
+      50% {
+        background-position: left bottom;
+      }
+      75% {
+        background-position: right top;
+      }   
+  }

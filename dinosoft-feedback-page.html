@@ -1,0 +1,97 @@
+<!DOCTYPE html> 
+<html lang="en"> 
+
+<head>
+    
+    <link rel="icon" type="image/x-icon" href="DINOSOFT-LOGO.jpg">
+
+
+<link rel="stylesheet" href="feedback-styles.css">
+	<meta charset="UTF-8"> 
+	<meta name="viewport"
+		content="width=device-width,initial-scale=1.0"> 
+	<title>Dinosoft Feedback Page</title> 
+	<link rel="stylesheet" href= 
+"https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"> 
+	<link rel="stylesheet" href="index.css"> 
+</head> 
+
+<body> 
+	<b><h1>Dinosoft Feedback Form</b>
+	</h1> 
+	<div class="form-box"> 
+		<div class="textup"> 
+			<i class="fa fa-solid fa-clock"></i> 
+			It only takes two minutes!! 
+		</div> 
+		<form action="https://formspree.io/f/manwwbzw" method="POST"> 
+            <!-- Replace {your_form_id} with your actual Formspree form ID -->
+			<label for="uname"> 
+				<i class="fa fa-solid fa-user"></i> 
+				Name 
+			</label> 
+			<input type="text" id="uname"
+				name="uname" required> 
+
+			<label for="email"> 
+				<i class="fa fa-solid fa-envelope"></i> 
+				Email Address 
+			</label> 
+			<input type="email" id="email"
+				name="email" required> 
+
+            <label for="date"> 
+                <i class="fa-regular fa-calendar-chec"></i> 
+                When was your first time trying Dinosoft ?
+            </label> 
+            <input type="date" id="date"
+                name="First time Tried" required> 
+
+			<label> 
+				<i class="fa-solid fa-face-smile"></i> 
+				Do you satisfy with our service? 
+			</label> 
+			<div class="radio-group"> 
+				<input type="radio" id="yes"
+					name="satisfy" value="yes" checked> 
+				<label for="yes">Yes</label> 
+
+				<input type="radio" id="no"
+					name="satisfy" value="no"> 
+				<label for="no">No</label> 
+			</div> 
+
+			<label for="msg"> 
+				<i class="fa-solid fa-comments"
+				style="margin-right: 3px;"></i> 
+Got a suggestion ?			</label> 
+			<textarea id="msg" name="msg"
+					rows="4" cols="10" required> 
+			</textarea> 
+
+            <label for="feedback"> 
+                🗯️ Have Feedback ?	</label> 
+			<textarea id="feedback" name="feedback"
+					rows="8" cols="10" required> 
+			</textarea> 
+
+			<button type="submit"> 
+				Submit 
+			</button> 
+		</form> 
+	</div> 
+    <br>
+    <br>
+    <br>
+    <br>
+
+
+    <script>
+        window.onload = function() {
+            document.body.style.zoom = "95%";
+        }
+    </script>
+
+</body> 
+
+</html>

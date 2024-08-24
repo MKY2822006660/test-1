@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="icon" type="image/x-icon" href="DINOSOFT-LOGO.jpg">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Change User's Username and Password</title>
+    <style>
+        body {
+            font-family: 'Merriweather', serif;
+            font-weight: bold;
+        }
+        .message-box {
+            border: 1px solid #ccc;
+            background-color: #f9f9f9;
+            padding: 10px;
+            margin-top: 10px;
+        }
+    </style>
+    <script>
+        function changeUsername() {
+            var oldUsername = document.getElementById("oldUsername").value;
+            var newUsername = document.getElementById("newUsername").value;
+            document.getElementById("oldUsernameDisplay").innerText = newUsername;
+            document.getElementById("usernameMessage").innerText = "Your username has been changed from " + oldUsername + " to " + newUsername + ".";
+            document.getElementById("usernameMessageBox").style.display = "block";
+        }
+
+        function changePassword() {
+            var oldPassword = document.getElementById("oldPassword").value;
+            var newPassword = document.getElementById("newPassword").value;
+            document.getElementById("oldPasswordDisplay").innerText = newPassword;
+            document.getElementById("passwordMessage").innerText = "Your password has been changed from " + oldPassword + " to " + newPassword + ".";
+            document.getElementById("passwordMessageBox").style.display = "block";
+        }
+    </script>
+</head>
+<body>
+    <center>
+        <br>
+        <h2>Change Username</h2>
+        <p>Old Username: <input type="text" id="oldUsername"></p>
+        <p>New Username: <input type="text" id="newUsername"></p>
+        <button onclick="changeUsername()">Change Username</button>
+        <div id="usernameMessageBox" class="message-box" style="display: none;">
+            <p id="usernameMessage"></p>
+        </div>
+        <p>Updated Username: <span id="oldUsernameDisplay">******</span></p>
+        <hr>
+        <h2>Change Password</h2>
+        <p>Old Password: <input type="password" id="oldPassword"></p>
+        <p>New Password: <input type="password" id="newPassword"></p>
+        <button onclick="changePassword()">Change Password</button>
+        <div id="passwordMessageBox" class="message-box" style="display: none;">
+            <p id="passwordMessage"></p>
+        </div>
+        <p>Updated Password: <span id="oldPasswordDisplay">******</span></p>
+    </center>
+</body>
+</html>
+
+
+
+
+
+<style>
+body {
+  background-image: url('background-image-for-authenication-page.jpg');
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: 100% 100%;
+}
+</style>

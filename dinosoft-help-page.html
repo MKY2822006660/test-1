@@ -1,0 +1,868 @@
+<!DOCTYPE html>
+<html>
+    <head>
+    
+        <link rel="icon" type="image/x-icon" href="DINOSOFT-LOGO.jpg">
+    <body>
+        <center>
+            <h1 style="font-size: 90px">Help Page</h1>
+<h3>Welcome,</h3>
+<h4>Thanks for visiting Dinosoft's help page. We really try to do our best to provide the most comforting experience for our users.</h4>
+<h4>As some of our users know, Dinosoft is just a simple project that kept expanding till now. Dinooft may have some bugs or issues. If you are encountering an issue, please click on the botton below to open a window with some isuues, if you still can not fix your problem or syill can not find your issue, please email us at our email or contact us by form. You can chose the option that you would like from below:</h4>
+        </center>
+    </body>
+</html>
+</head>
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<style>
+  .button-container {
+    display: flex;
+    gap: 10px; /* Adjust the gap between buttons */
+  }
+  .button {
+    height: 150px; /* Adjust the height of the buttons */
+    flex: 1; /* Distribute available space evenly */
+    text-align: center;
+    background-color: #066fb5; /* Button background color */
+    color: #ffffff; /* Button text color */
+    font-size: 24px; /* Button text size */
+    border: #000000;
+    cursor: pointer;
+  }
+</style>
+<title>Dinosoft Help</title>
+</head>
+<body>
+
+<div class="button-container">
+  <button class="button"><a href="Contact-us.html">Contact Us by Form</a></button>
+  <button class="button"><a href="mailto:mohammed.k.yousef2434@gmail.com">Send Email</a></button>
+</div>
+
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+<br><br><br><br>
+
+
+
+<center>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+    
+        <link rel="icon" type="image/x-icon" href="DINOSOFT-LOGO.jpg">
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dinosoft Help</title>
+    <style>
+        .window {
+            position: absolute;
+            background-color: #fff;
+            border: 1px solid #ccc;
+            width: 800px;
+            height: 600px;
+            resize: both;
+            overflow: auto;
+            transform: translate(-50%, -50%);
+        }
+
+        .window-header {
+            background-color: #f0f0f0;
+            padding: 5px;
+            cursor: move;
+        }
+
+        .justify {
+              text-align: justify;
+             text-justify: inter-word;
+}
+        .window-header .close-btn {
+            float: right;
+            cursor: pointer;
+            width: 30px; 
+            height: 30px; 
+            border-radius: 50%; 
+            background-color: #ccc; 
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            transition: background-color 0.3s ease;
+        }
+
+        .window-header .close-btn:hover {
+            background-color: #aaa; 
+        }
+
+        .tabs {
+            float: left;
+            width: 250px;
+            height: 100%;
+            background-color: #FFE900;
+            border-right: 1px solid #ccc;
+            box-sizing: border-box; /* Ensure padding and border are included in the element's width and height */
+        }
+
+        .tab {
+            padding: 10px;
+            cursor: pointer;
+            border-bottom: 2px solid #ff0000; 
+            transition: border-color 0.3s ease; 
+        }
+
+        .tab-content {
+            display: none;
+            padding: 10px;
+            margin-left: 20px; /* Added margin-left for spacing */
+            overflow: hidden; /* Ensure content doesn't overlap */
+        }
+
+        .active {
+            background-color: #ccc;
+        }
+    </style>
+</head>
+<body>
+
+<button onclick="openWindow()">Open Dinosoft Window Help</button>
+
+<script>
+var colors = ['#ff0000', '#ff7300', '#fffb00', '#48ff00', '#00ffd5', '#002bff', '#7a00ff', '#ff00c8', '#ff0000'];
+
+function changeBorderColor(index) {
+    var tabs = document.querySelectorAll('.tab');
+    tabs[index].addEventListener('mouseenter', function() {
+        this.style.borderColor = colors[index];
+    });
+    tabs[index].addEventListener('mouseleave', function() {
+        this.style.borderColor = colors[0];
+    });
+}
+
+function openWindow() {
+    var windowDiv = document.createElement('div');
+    windowDiv.className = 'window';
+    windowDiv.style.left = '50%';
+    windowDiv.style.top = '50%';
+    
+    var windowHeader = document.createElement('div');
+    windowHeader.className = 'window-header';
+    windowHeader.innerHTML = 'Please choose the issue you are facing from below, if you have a different issue, please <a href="mailto:mohammed.k.yousef2434@gmail.com">Click Here</a> and try contacting us and we will try to solve your problem.';
+    var hr = document.createElement('hr');
+    windowHeader.appendChild(hr);
+    var closeButton = document.createElement('div');
+    closeButton.className = 'close-btn';
+    closeButton.innerHTML = '❌';
+    closeButton.onclick = function() {
+        document.body.removeChild(windowDiv);
+    };
+    windowHeader.appendChild(closeButton);
+    windowDiv.appendChild(windowHeader);
+
+    var windowContent = document.createElement('div');
+    windowContent.innerHTML = `
+        <div class="tabs">
+            <div class="tab" onclick="showTab(0)">Can not sign up ?</div>
+
+
+            <div class="tab" onclick="showTab(1)">Can not sign in ?</div>
+
+
+            <div class="tab" onclick="showTab(2)">Dinosoft Workspaces is not working ?</div>
+
+
+            <div class="tab" onclick="showTab(3)">Dinosoft 9-dots menu is redirecting to weird pages?</div>
+
+
+            <div class="tab" onclick="showTab(4)">Dinosoft sidebar is not working ?</div>
+
+
+            <div class="tab" onclick="showTab(5)">Some of Dinosoft's pages are having weird things, such as the contents of the page are getting inside each others or the codes of the webpage is not correct ?</div>
+
+
+            <div class="tab" onclick="showTab(6)">Dinosoft search engine is not working ?</div>
+
+
+            <div class="tab" onclick="showTab(7)">Dinosoft drawing pad is not working ?</div>
+
+
+            <div class="tab" onclick="showTab(8)">Does your browser say it is not safe to put personal informations, such as email or passwords ?</div>
+
+
+            <div class="tab" onclick="showTab(9)">Dinosoft Games are not working ?</div>
+
+
+            <div class="tab" onclick="showTab(10)">You can not download the share Dinosoft image or I can not share Dinosoft with other ways ?</div>
+
+
+            <div class="tab" onclick="showTab(11)">Dinosoft team is not responding to the E-mails that I sent ?</div>
+        </div>
+
+
+
+
+        <div class="tab-content" id="tab1-content">
+            <center><h1>Can not sign up in Dinosoft?</h1></center>
+            <div class="justify">
+            <h3>The sign-up process for Dinosoft can be challenging due to several factors. Browser security warnings may appear, causing 				users to hesitate. To address this, users can verify the 					website's legitimacy and proceed cautiously. Technical glitches, 			 such as server errors or delays in verification emails, may also 			  occur. Users can try refreshing the page or contacting customer 			  support for assistance. Input errors, like mistyped information, 			   can impede registration. To avoid this, users should review 				their details before submission. Security software interference, 			 blocking access to the registration page, can be resolved by 				adjusting settings or temporarily disabling the software. In 				conclusion, while challenges exist, users can overcome them by 				taking practical steps and Dinosoft can enhance the registration 			 experience by optimizing their website and providing clear 				communication and support channels.</h3> 
+        </div>
+        </div>
+
+
+
+            <div class="justify">
+        <div class="tab-content" id="tab2-content">There are several common reasons why users may experience difficulties signing into their accounts. These can include:
+<br>
+<br>
+1) Entering an incorrect username or password
+<br><br>
+2) Forgotten password
+<br><br>
+3) Browser-related issues, such as cached data or cookies
+<br><br>
+4) Account not being fully set up or activated
+<br><br>
+5) Temporary technical issues with the website or service
+<br><br>
+6) We apologize for any inconvenience this may have caused and are here to assist you in resolving this issue.
+<br>
+<br>
+Here are a few steps that may help you get back into your account:
+<br><br>
+1. Check Your Username and Password: Ensure that you are entering the correct username and password. Remember that passwords are case-sensitive.
+<br><br>
+2. Reset Your Password: If you have forgotten your password, you can reset it by clicking on the "Forgot Password" link on the sign-in page. Follow the instructions provided to create a new password.
+<br><br>
+3. Clear Browser Cache and Cookies: Sometimes, clearing your browser’s cache and cookies can resolve sign-in issues. You can find this option in your browser’s settings.
+<br><br>
+4. Try a Different Browser or Device: Occasionally, using a different web browser or device can help identify if the issue is specific to your current setup.
+<br><br>
+5. If you have tried these steps and are still unable to sign in, please send us an email with any error messages you are encountering or any additional details about the issue. Our support team is ready to assist you further.
+<br><br>            
+</div>
+            </div>
+
+
+
+            <div class="justify">
+        <div class="tab-content" id="tab3-content">We understand that you are experiencing issues with our workspace. We apologize for any inconvenience this may have caused and are here to assist you in resolving this problem.
+<br><br>
+There are several common reasons why the workspace may not be functioning correctly. These can include:
+<br><br>
+1) Browser-related issues, such as outdated versions or cached data
+<br><br>
+2) Internet connectivity problems
+<br><br>
+3) Temporary technical issues on our end
+<br><br>
+4) Here are a few steps that may help resolve the issue:
+<br><br>
+1. Clear Browser Cache and Cookies: Sometimes, clearing your browser’s cache and cookies can resolve issues. You can find this option in your browser’s settings.
+<br><br>
+2. Update Your Browser: Ensure that you are using the latest version of your web browser. Updating can resolve compatibility issues.
+<br><br>
+3. Check Internet Connection: Verify that you have a stable internet connection. Sometimes, connectivity issues can affect the functionality of the workspace.
+<br><br>
+4.Try a Different Browser or Device: Occasionally, using a different web browser or device can help identify if the issue is specific to your current setup.
+<br><br>
+5.Please keep in mind that this is a small coding sample for coders, developed by a single coder, and it is still under development. As such, you may encounter some issues as we continue to improve the workspace.
+<br><br>
+If you have tried these steps and are still experiencing issues, please send us an email with any error messages you are encountering or any additional details about the problem. Our support team is ready to assist you further.
+<br><br>            
+</div>
+            </div>
+
+
+
+            <div class="justify">
+        <div class="tab-content" id="tab4-content">We understand that you are experiencing issues with the 9 dots menu, where clicking on it sometimes redirects you to another page. We apologize for any inconvenience this may have caused and appreciate you bringing this to our attention.
+<br><br>
+This issue typically arises due to the clickable areas within the 9 dots menu. The menu items are designed to be activated when clicked directly, which can inadvertently lead to redirection if not clicked correctly. To mitigate this problem, we recommend the following:
+<br><br>
+1) <b>Click Around the 9 Dots:</b> Instead of clicking directly on the dots, try clicking between, under, above, or on the sides of the dots. This should help avoid accidental redirection.
+<br><br>
+2) <b>Avoid the Dots: </b>Clicking directly on the dots themselves may trigger the redirection to the specific page each dot is responsible for.
+<br><br>
+Please keep in mind that our development team is aware of this issue and is actively working on improving the user interface to enhance usability and prevent unintended actions.
+<br><br>
+If you continue to encounter difficulties or if there are any other questions or concerns you have, please don't hesitate to contact us. Our support team is here to assist you and ensure your experience with our service is as smooth as possible.
+<br><br>            
+</div>
+            </div>
+
+
+
+            <div class="justify">
+        <div class="tab-content" id="tab5-content">Thank you for bringing to our attention that you are experiencing issues with our sidebar navigation. We apologize for any inconvenience this may have caused and are committed to resolving this problem promptly.
+<br> <br> 
+The sidebar is designed for easy navigation by clicking on logos representing different websites to redirect you to the desired page. If the sidebar is not functioning as expected, there are a few troubleshooting steps you can try:
+<br> <br> 
+1) <b>Refresh the Page: </b>Sometimes, a simple refresh of the page can resolve temporary issues.
+<br> <br> 
+2) <b>Clear Browser Cache and Cookies: </b>Clearing your browser’s cache and cookies can often resolve browsing issues. You can find this option in your browser’s settings.
+<br> <br> 
+3) <b>Try a Different Browser or Device: </b>Occasionally, browser-specific issues can affect functionality. Trying a different browser or device may help identify if this is the case.
+<br> <br> 
+4) <b>Check Internet Connection: </b>Ensure that you have a stable internet connection, as connectivity issues can impact navigation.
+<br> <br> 
+If you continue to experience issues after trying these steps, please provide more details about the specific problem or any error messages you are encountering in an email the mail it to our team. This will help us investigate further and provide you with the necessary assistance.
+<br> <br> 
+We appreciate your patience as we work to resolve this matter promptly. Our goal is to ensure that your experience with our service is seamless and efficient.
+<br> <br> 
+Thank you for your understanding.
+<br> <br> 
+            </div>
+            <div>
+
+
+
+            <div class="justify">
+        <div class="tab-content" id="tab6-content">Thank you for bringing to our attention the issues you've encountered with some of Dinosoft's pages. We apologize for any inconvenience this may have caused and appreciate your feedback.
+<br><br>
+The problems you described, such as content overlapping or incorrect webpage codes, are concerning, and we want to address them promptly. Here are some steps you can take to potentially resolve or mitigate these issues:
+<br><br>
+1) <b>Clear Browser Cache and Cookies: </b>Clearing your browser’s cache and cookies can often resolve display issues caused by cached data. You can find this option in your browser’s settings.
+<br><br>
+2) <b>Check Browser Compatibility: </b>Ensure you are using a supported and up-to-date web browser. Sometimes, older browser versions may not fully support newer website features or updates.
+<br><br>
+3) <b>Report Specific Pages and Issues: </b>If you encounter specific pages where content overlaps or codes appear incorrect, please provide details such as the URL of the page and a description of the problem. This information will help our development team investigate and address the issue more effectively.
+<br><br>
+4) <b>Try Another Device: </b>To determine if the issue is specific to your current device, try accessing the website on another device (e.g., a different computer, tablet, or smartphone). This can help identify if the issue persists across multiple platforms.
+<br> <br> 
+Please rest assured that we take these reports seriously, and our team is dedicated to ensuring the quality and functionality of our website. We are actively investigating the reported issues to provide a resolution as quickly as possible.
+<br><br>
+If you have any additional information or questions, please don't hesitate to reach out. Your feedback is invaluable to us as we work to improve our services.
+<br> <br> 
+Thank you for your patience and understanding.
+<br> <br> 
+            </div>
+            </div>
+
+
+
+            <div class="justify">
+        <div class="tab-content" id="tab7-content">Thank you for bringing to our attention the issue you've encountered with the Dinosoft search engine. We apologize for any inconvenience this may have caused and appreciate your feedback.
+<br><br>
+To address this issue, please follow these troubleshooting steps:
+<br><br>
+1) <b>Check Your Internet Connection: </b>Ensure that you have a stable internet connection. Sometimes, connectivity issues can affect the functionality of the search engine.
+<br><br>
+2) <b>Clear Browser Cache and Cookies: </b>Clearing your browser’s cache and cookies can resolve browsing issues, including problems with the search engine. You can find this option in your browser’s settings.
+<br><br>
+3) <b>Try Another Browser or Device: </b>Occasionally, browser-specific issues can impact the performance of the search engine. Trying a different web browser or device may help identify if this is the case.
+<br><br>
+4) <b>Update Your Browser: </b>Ensure that you are using the latest version of your web browser. Updating can resolve compatibility issues that may affect the search engine's functionality.
+<br><br>
+5) <b>Report Specific Issues: </b>If you continue to experience problems with the search engine, please provide specific details such as the steps you took, any error messages received, and the browser or device you are using. This information will help us investigate and resolve the issue more effectively.
+<br><br>
+Please rest assured that we take these reports seriously, and our technical team is actively investigating the reported issue to restore normal functionality as quickly as possible.
+<br><br>
+If you have any additional information or questions, please don't hesitate to reach out. Your feedback is invaluable to us as we strive to provide you with the best possible experience.
+<br><br>
+Thank you for your patience and understanding.
+<br><br>           
+</div>
+            </div>
+
+
+
+            <div class="justify">            
+        <div class="tab-content" id="tab8-content">Thank you for bringing to our attention the issue you've encountered with the Dinosoft drawing pad. We apologize for any inconvenience this may have caused and appreciate your feedback.
+<br><br>
+Please note that the Dinosoft drawing pad is designed as a very simple tool primarily intended for kids. To address the issue you are experiencing, please follow these steps:
+<br><br>
+1) <b>Refresh the Page: </b>Sometimes, a simple refresh of the page can resolve temporary issues with the drawing pad.
+<br><br>
+2) <b>Clear Browser Cache and Cookies: </b>Clearing your browser’s cache and cookies can often resolve browsing issues. This can be particularly effective for simple web applications like our drawing pad.
+<br><br>
+3) <b>Try Another Browser or Device: </b>Occasionally, browser-specific issues can affect the functionality of the drawing pad. Trying a different web browser or device may help identify if this is the case.
+<br><br>
+4) <b>Check Browser Compatibility: </b>Ensure that you are using a supported and up-to-date web browser. Compatibility issues can sometimes impact the performance of web applications.
+<br><br>
+If the issue persists after trying these steps, please provide specific details such as any error messages you encountered or a description of the problem. This information will help us investigate and address the issue more effectively.
+<br><br>
+Please rest assured that our team is dedicated to ensuring the functionality of our drawing pad and will work diligently to resolve any issues reported.
+<br><br>
+Thank you for your patience and understanding.
+<br><br>
+            </div>
+            </div>
+
+
+
+            <div class="justify">
+        <div class="tab-content" id="tab9-content">Thank you for reaching out with your concerns about entering personal information, such as email or passwords, on our browser. We understand the importance of security and privacy, especially when it comes to sensitive information.
+<br><br>
+Please note that our browser is a very small and simple project, primarily developed as an example by a coder. While we strive to ensure the security of our users, it's important to highlight a few points:
+<br><br>
+1) <b>Security Measures: </b>We have implemented basic security measures to protect user data. However, given the nature of our project, it may not have the robust security features of larger, more established browsers.
+<br><br>
+2) <b>Use Caution: </b>As with any online platform, we recommend exercising caution when entering personal information. Avoid sharing sensitive details unless you are confident in the security of the platform and your connection.
+<br><br>
+3) <b>Development Stage: </b>Our browser is still in development, and we are continuously improving its functionality and security. Your feedback helps us identify areas for enhancement, including security measures.
+<br><br>
+If you have encountered warnings about security when using our browser, it may be due to its developmental stage and limited security features compared to mainstream browsers. It is also up to you to sign in as guest everytime you would like. We appreciate your understanding as we work towards improving our project.
+<br><br>
+If you have any further questions or concerns, or if you would like to provide specific feedback about your experience, please do not hesitate to contact us. We are committed to ensuring a safe and positive user experience for everyone.
+<br><br>
+Thank you for your patience and support as we continue to develop and refine our project.
+<br><br>
+            </div>
+            </div>
+
+
+
+            <div class="justify">
+        <div class="tab-content" id="tab10-content">Thank you for bringing to our attention the issue you've encountered with Dinosoft Games. We apologize for any inconvenience this may have caused and appreciate your feedback.
+<br><br>
+To address this issue, please follow these steps:
+<br><br>
+1) <b>Refresh the Page: </b>Sometimes, a simple refresh of the page can resolve temporary issues with Dinosoft Games.
+<br><br>
+2) <b>Clear Browser Cache and Cookies: </b>Clearing your browser’s cache and cookies can often resolve browsing issues. This can be particularly effective for games and interactive content.
+<br><br>
+3) <b>Try Another Browser or Device: </b>Occasionally, browser-specific issues can affect the functionality of Dinosoft Games. Trying a different web browser or device may help identify if this is the case.
+<br><br>
+4) <b>Report Bugs: </b>If you encounter bugs or persistent issues with Dinosoft Games, please report them to our founder at <a href="mailto:mohammed.k.yousef2434@gmail.com">this E-mail</a>. Your feedback helps us improve our games and provide a better experience for all users. Please include the tag "[Bug Report]" in the subject line for easier identification.
+<br><br>
+Please rest assured that our team is dedicated to ensuring the functionality and enjoyment of Dinosoft Games, and we will work diligently to resolve any issues reported.
+<br><br>
+Thank you for your patience and understanding as we strive to improve our services.
+<br><br>
+            </div>
+            </div>
+
+
+
+            <div class="justify">
+        <div class="tab-content" id="tab11-content">Thank you for bringing to our attention the issue you've encountered with downloading and sharing Dinosoft images. We appreciate your feedback and want to assist you in resolving this matter.
+<br><br>
+Dinosoft images are meant to be shared and downloaded easily. If you are experiencing difficulties in doing so, please follow these steps:
+<br><br>
+1) <b>Right-click Download:</b> To download an image, right-click on it and select "Save image as" or a similar option depending on your browser. This should allow you to save the image to your device.
+<br><br>
+2) <b>Share via Other Methods: </b>If you are unable to share Dinosoft images through the provided options, you can save the image to your device and then share it using other platforms or applications.
+<br><br>
+3) <b>Report Specific Issues:</b> If you continue to experience issues with downloading or sharing Dinosoft images, please provide specific details such as any error messages encountered or the steps you took. This information will help us investigate and address the issue more effectively.
+<br><br>
+Please rest assured that sharing and downloading Dinosoft images is allowed and encouraged. If there are any specific features or functionalities you would like to see improved, please let us know.
+<br><br>
+Thank you for your patience and understanding as we work to enhance your experience with Dinosoft.
+<br><br>
+            </div>
+            </div>
+
+
+
+            <div class="justify">
+        <div class="tab-content" id="tab12-content">Thank you for reaching out to us and bringing to our attention that you have not received a response to your recent email inquiry. We sincerely apologize for any inconvenience this may have caused.
+<br><br>
+Please know that your communication is important to us, and we strive to provide timely and helpful responses to all inquiries. We are currently investigating the issue and will ensure that your email receives the attention it deserves.
+<br><br>
+To assist you further, could you please confirm the email address you used to contact us? This will help us locate your inquiry promptly and provide you with the assistance you need.
+<br><br>
+Once again, we apologize for the delay and any frustration it may have caused. We appreciate your patience and understanding as we work to resolve this matter.
+<br><br>
+If you have any additional questions or concerns, please feel free to reply to this email or contact us directly at [your contact information].
+<br><br>
+Thank you for being a valued member of the Dinosoft community.
+<br><br>
+            </div>
+            </div>
+    `;
+    windowDiv.appendChild(windowContent);
+
+    document.body.appendChild(windowDiv);
+    makeDraggable(windowDiv);
+}
+
+function makeDraggable(element) {
+    var pos1 = 0, pos2 = 0, pos3 = 0, pos4 = 0;
+    element.querySelector('.window-header').onmousedown = dragMouseDown;
+
+    function dragMouseDown(e) {
+        e = e || window.event;
+        e.preventDefault();
+        pos3 = e.clientX;
+        pos4 = e.clientY;
+        document.onmouseup = closeDragElement;
+        document.onmousemove = elementDrag;
+    }
+
+    function elementDrag(e) {
+        e = e || window.event;
+        e.preventDefault();
+        pos1 = pos3 - e.clientX;
+        pos2 = pos4 - e.clientY;
+        pos3 = e.clientX;
+        pos4 = e.clientY;
+        element.style.top = (element.offsetTop - pos2) + "px";
+        element.style.left = (element.offsetLeft - pos1) + "px";
+    }
+
+    function closeDragElement() {
+        document.onmouseup = null;
+        document.onmousemove = null;
+    }
+}
+
+function showTab(tabIndex) {
+    var tabContents = document.querySelectorAll('.tab-content');
+    var tabs = document.querySelectorAll('.tab');
+
+    for (var i = 0; i < tabContents.length; i++) {
+        tabContents[i].style.display = 'none';
+        tabs[i].classList.remove('active');
+    }
+
+    tabContents[tabIndex].style.display = 'block';
+    tabs[tabIndex].classList.add('active');
+}
+
+document.addEventListener('DOMContentLoaded', function() {
+    var tabs = document.querySelectorAll('.tab');
+    for (var i = 0; i < tabs.length; i++) {
+        changeBorderColor(i);
+    }
+});
+</script>
+
+</body>
+</html>
+</center>
+
+<br>
+<br>
+<br>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<script>
+    window.onload = function() {
+        document.body.style.zoom = "95%";
+    }
+</script>
+
+
+
+
+
+
+
+
+
+<style>
+    body {
+      background-image: url('wallpaper-background-for-dinosoft-help-page.jpg');
+      background-repeat: no-repeat;
+      background-attachment: fixed;
+      background-size: 100% 100%;
+    }
+    </style>

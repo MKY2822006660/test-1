@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+  <link rel="icon" type="image/x-icon" href="DINOSOFT-LOGO.jpg">
+  
+</head>
+<body>
+
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Dinosoft Drawing Pad</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+        #container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        /* Your existing CSS styles here */
+        #canvas-container {
+            position: relative;
+        }
+        #drawing-canvas {
+            border: 5px solid #000; /* 5px border for drawing pad */
+        }
+        #toolbar {
+            margin-top: 10px;
+        }
+        .color-picker {
+            width: 20px;
+            height: 20px;
+            border: 1px solid #000;
+            cursor: pointer;
+            margin-right: 5px;
+        }
+        .width-selector {
+            margin-top: 5px;
+        }
+        /* Additional styles for saved drawings */
+        .saved-drawing {
+            display: inline-block;
+            margin: 10px; /* Add margin to create space */
+            border: 4px solid black; /* Change border color to black */
+            padding: 10px;
+        }
+        .saved-drawing img {
+            max-width: 100%;
+            max-height: 200px;
+        }
+        .download-button {
+            margin-top: 10px;
+            display: block;
+        }
+        /* Styles for marker and eraser buttons */
+        .tool-button {
+            margin-top: 5px;
+            display: inline-block;
+            cursor: pointer;
+            padding: 5px 10px;
+            background-color: #ddd;
+            border: 1px solid #888;
+        }
+        .tool-button.active {
+            background-color: #4CAF50;
+            color: white;
+        }
+        /* Styles for artist name input */
+        #artist-name {
+            margin-top: 10px;
+            display: block;
+            width: 100%;
+        }
+    </style>
+</head>
+<body>
+    <div id="container">
+        <div id="canvas-container">
+            <!-- Increase the canvas size by 80px in both width and height -->
+            <canvas id="drawing-canvas" width="680" height="480"></canvas>
+            <div id="toolbar">
+                <!-- Artist Name Input (Required) -->
+                <input type="text" id="artist-name" placeholder="Enter artist name" required>
+                
+                <label for="color-selector">Color: </label>
+                <input type="color" id="color-selector" value="#000000">
+                <label for="width-selector" class="width-selector">Width: </label>
+                <input type="range" id="width-selector" min="1" max="20" value="2">
+                
+                <!-- Marker Button -->
+                <button class="tool-button" id="use-marker">Use Marker</button>
+                <!-- Eraser Button -->
+                <button class="tool-button" id="use-eraser">Use Eraser</button>
+
+                <!-- Marker Width Chooser -->
+                <div id="marker-width-selector">
+                    <label for="marker-width">Marker Width: </label>
+                    <input type="range" id="marker-width" min="1" max="20" value="2">
+                </div>
+                <!-- Eraser Width Chooser -->
+                <div id="eraser-width-selector">
+                    <label for="eraser-width">Eraser Width: </label>
+                    <input type="range" id="eraser-width" min="1" max="20" value="5">
+                </div>
+
+                <!-- Save Drawing Button -->
+                <button id="save-drawing">Save Drawing</button>
+            </div>
+        </div>
+    
+        <!-- Add space between drawing pad and saved drawings -->
+        <div style="margin-top: 20px;"></div>
+    
+        <!-- Display saved drawings at the bottom -->
+        <div id="saved-drawings">
+
+            <div id="saved-drawing-list"></div>
+        </div>
+    </div>
+
+    <script>
+        const canvas = document.getElementById('drawing-canvas');
+        const context = canvas.getContext('2d');
+        const widthSelector = document.getElementById('width-selector');
+        const colorSelector = document.getElementById('color-selector');
+        const artistNameInput = document.getElementById('artist-name'); // Added artist name input
+        let isDrawing = false;
+        let isDrawingShape = false;
+        let startX, startY;
+
+        // Marker settings
+        let markerWidth = parseInt(widthSelector.value);
+        context.strokeStyle = 'black';
+        context.lineWidth = markerWidth;
+
+        canvas.addEventListener('mousedown', () => {
+            if (isDrawingShape) return;
+            isDrawing = true;
+        });
+
+        canvas.addEventListener('mouseup', () => {
+            if (isDrawingShape) return;
+            isDrawing = false;
+            context.beginPath();
+        });
+
+        canvas.addEventListener('mousemove', draw);
+
+        canvas.addEventListener('mouseenter', () => {
+            if (isDrawing) {
+                context.beginPath();
+            }
+        });
+
+        canvas.addEventListener('mouseleave', () => {
+            if (isDrawingShape) return;
+            isDrawing = false;
+        });
+
+        colorSelector.addEventListener('input', () => {
+            context.strokeStyle = colorSelector.value;
+        });
+
+        widthSelector.addEventListener('input', () => {
+            const widthValue = parseInt(widthSelector.value);
+            context.lineWidth = widthValue;
+        });
+
+        function draw(e) {
+            if (!isDrawing) return;
+            context.lineCap = 'round';
+            context.lineTo(e.clientX - canvas.getBoundingClientRect().left, e.clientY - canvas.getBoundingClientRect().top);
+            context.stroke();
+            context.beginPath();
+            context.moveTo(e.clientX - canvas.getBoundingClientRect().left, e.clientY - canvas.getBoundingClientRect().top);
+        }
+
+        // Marker and Eraser Button Functionality
+        const useMarkerButton = document.getElementById('use-marker');
+        const useEraserButton = document.getElementById('use-eraser');
+        const markerWidthSelector = document.getElementById('marker-width');
+        const eraserWidthSelector = document.getElementById('eraser-width');
+
+        useMarkerButton.addEventListener('click', () => {
+            context.strokeStyle = colorSelector.value;
+            context.lineWidth = markerWidthSelector.value;
+            useMarkerButton.classList.add('active');
+            useEraserButton.classList.remove('active');
+            isDrawingShape = false;
+        });
+
+        useEraserButton.addEventListener('click', () => {
+            context.strokeStyle = 'white';
+            context.lineWidth = eraserWidthSelector.value;
+            useEraserButton.classList.add('active');
+            useMarkerButton.classList.remove('active');
+            isDrawingShape = false;
+        });
+
+        // Save Drawing Button Functionality
+        const saveDrawingButton = document.getElementById('save-drawing');
+        let savedDrawings = JSON.parse(localStorage.getItem('savedDrawings')) || [];
+
+        saveDrawingButton.addEventListener('click', () => {
+            if (artistNameInput.value.trim() === '') {
+                alert('Please enter the artist name.');
+                return;
+            }
+
+            const dataURL = canvas.toDataURL();
+
+            // Create a new saved drawing element
+            const savedDrawingElement = document.createElement('div');
+            savedDrawingElement.classList.add('saved-drawing');
+
+            // Create an image element for the saved drawing
+            const img = document.createElement('img');
+            img.src = dataURL;
+            img.alt = 'Saved Drawing';
+
+            // Create a download link for the saved drawing
+            const downloadLink = document.createElement('a');
+            downloadLink.href = dataURL;
+            downloadLink.download = `drawing_${new Date().getTime()}.png`; // Generate a unique filename
+            downloadLink.innerText = 'Download';
+
+            // Append the image and download link to the saved drawing element
+            savedDrawingElement.appendChild(img);
+            savedDrawingElement.appendChild(downloadLink);
+
+            // Append the saved drawing element to the list of saved drawings
+            const savedDrawingList = document.getElementById('saved-drawing-list');
+            savedDrawingList.appendChild(savedDrawingElement);
+
+            // Clear the canvas
+            context.clearRect(0, 0, canvas.width, canvas.height);
+
+            // Save to local storage
+            savedDrawings.push({ artist: artistNameInput.value, drawing: dataURL });
+            localStorage.setItem('savedDrawings', JSON.stringify(savedDrawings));
+        });
+
+
+
+
+    </script>
+</body>
+</html>
+
+
+
+<!DOCTYPE html>
+<html>
+<head>
+
+  <link rel="icon" type="image/x-icon" href="https://www.linkpicture.com/q/icon_12.jpg">
+  
+</head>
+<body>
+
+</body>
+</html>
+
+
+
+
+
+
+
+
+<style>
+body {
+  background-image: url('dinosoft-drawing-pad-wallpaper-background.jpg');
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: 100% 100%;
+}
+</style>

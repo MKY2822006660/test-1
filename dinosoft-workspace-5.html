@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+    
+        <link rel="icon" type="image/x-icon" href="DINOSOFT-LOGO.jpg">
+  <style>
+    #plusSignContainer {
+      width: 170px;
+      height: 100px;
+      background: rgba(0, 0, 0, 0.47);
+      border-radius: 20px;
+      display: inline-block;
+      cursor: pointer;
+    }
+
+    #plusSign {
+      font-size: 36px;
+      color: #fff;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 100%;
+    }
+
+    .box {
+      width: 260px;
+      height: 190px;
+      background: #FFFFFF;
+      border: 1px solid #000;
+      border-radius: 20px;
+      margin-top: 10px;
+      display: none;
+      padding: 10px;
+      box-sizing: border-box;
+      transition: transform 0.6s; /* Add transition for scale */
+      transform: scale(0); /* Initial scale for animation */
+    }
+
+    .box input {
+      width: 90%;
+      margin-bottom: 10px;
+    }
+
+    .submitted-data {
+      text-align: center;
+      margin-top: 10px;
+    }
+
+    .icon-container {
+      display: flex;
+      flex-wrap: wrap; /* Allow icons to wrap to the next row */
+      justify-content: flex-start; /* Align icons to the start of the container */
+      align-items: flex-start; /* Align icons to the start of the container */
+    }
+
+    .icon {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      margin: 5px;
+      cursor: move;
+    }
+
+    .icon-image {
+      width: 80px;
+      height: 80px;
+      border-radius: 50%;
+    }
+
+    .icon-name {
+      margin-top: 5px;
+    }
+  </style>
+</head>
+<body>
+
+<div class="icon-container" id="iconContainer">
+  <!-- Icons will be dynamically added here -->
+</div>
+
+<div id="plusSignContainer" onclick="showAddWorkspaceForm()">
+  <div id="plusSign">+</div>
+</div>
+
+<div class="box" id="box">
+  <label for="siteName">Site Name:</label>
+  <input type="text" id="siteName" placeholder="Enter Site Name">
+  <label for="siteLink">Site Link:</label>
+  <input type="text" id="siteLink" placeholder="Enter Site Link">
+  <label for="iconUrl">URL for the Icon (optional):</label>
+  <input type="text" id="iconUrl" placeholder="Enter Icon URL">
+  <button onclick="saveWorkspace()">Save</button>
+</div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Sortable/1.14.0/Sortable.min.js"></script>
+<script>
+  // Initialize Sortable.js on the icon container
+  const iconContainer = document.getElementById('iconContainer');
+  new Sortable(iconContainer, {
+    group: 'icon-container',
+    handle: '.icon',
+    animation: 150,
+    onStart(evt) {
+      const inputs = document.querySelectorAll('.box input');
+      inputs.forEach(input => (input.disabled = true));
+    },
+    onEnd(evt) {
+      const inputs = document.querySelectorAll('.box input');
+      inputs.forEach(input => (input.disabled = false));
+      saveOrderToLocalStorage();
+    },
+  });
+
+  loadIconsFromLocalStorage();
+
+  function showAddWorkspaceForm() {
+    const box = document.getElementById('box');
+    box.style.display = 'block';
+    setTimeout(() => {
+      box.style.transform = 'scale(1)';
+    }, 0);
+  }
+
+  function saveWorkspace() {
+    const siteName = document.getElementById('siteName').value;
+    const siteLink = document.getElementById('siteLink').value;
+    const iconUrl = document.getElementById('iconUrl').value;
+
+    const iconContainer = document.createElement('div');
+    iconContainer.className = 'icon';
+
+    const iconImage = document.createElement('img');
+    iconImage.src = iconUrl || `https://dummyimage.com/80x80/000/fff&text=${siteName.charAt(0).toUpperCase()}`;
+    iconImage.alt = 'Icon';
+    iconImage.className = 'icon-image';
+
+    const iconName = document.createElement('div');
+    iconName.textContent = siteName;
+    iconName.className = 'icon-name';
+
+    iconContainer.appendChild(iconImage);
+    iconContainer.appendChild(iconName);
+
+    if (siteLink) {
+      // Set the link information
+      iconContainer.setAttribute('data-link', siteLink);
+      iconContainer.addEventListener('click', function () {
+        window.location.href = siteLink;
+      });
+    }
+
+    document.getElementById('iconContainer').appendChild(iconContainer);
+    saveOrderToLocalStorage();
+
+    const box = document.getElementById('box');
+    box.style.display = 'none';
+  }
+
+  function saveOrderToLocalStorage() {
+    const iconElements = document.querySelectorAll('.icon');
+    const iconData = Array.from(iconElements).map(icon => ({
+      name: icon.querySelector('.icon-name').textContent,
+      link: icon.getAttribute('data-link'),
+    }));
+
+    localStorage.setItem('iconData', JSON.stringify(iconData));
+  }
+
+  function loadIconsFromLocalStorage() {
+    const iconDataString = localStorage.getItem('iconData');
+    if (iconDataString) {
+      const iconData = JSON.parse(iconDataString);
+
+      iconData.forEach(data => {
+        const iconContainer = document.createElement('div');
+        iconContainer.className = 'icon';
+
+        const iconImage = document.createElement('img');
+        iconImage.src = `https://dummyimage.com/80x80/000/fff&text=${data.name.charAt(0).toUpperCase()}`;
+        iconImage.alt = 'Icon';
+        iconImage.className = 'icon-image';
+
+        const iconNameElement = document.createElement('div');
+        iconNameElement.textContent = data.name;
+        iconNameElement.className = 'icon-name';
+
+        iconContainer.setAttribute('data-link', data.link);
+
+        iconContainer.appendChild(iconImage);
+        iconContainer.appendChild(iconNameElement);
+
+        iconContainer.addEventListener('click', function () {
+          const link = iconContainer.getAttribute('data-link');
+          if (link) {
+            window.location.href = link;
+          }
+        });
+
+        document.getElementById('iconContainer').appendChild(iconContainer);
+      });
+    }
+  }
+</script>
+
+</body>
+</html>
+
+
+
+
+<style>
+body {
+  background-image: url('https://th.bing.com/th/id/OIP.4lAqKr4DSpFZDepWoZF1dgHaEK?w=286&h=185&c=7&r=0&o=5&pid=1.7');
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: 100% 100%;
+}
+</style>

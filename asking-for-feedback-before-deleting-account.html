@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Delete Account Confirmation</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin: 50px;
+        }
+        .confirmation {
+            background-color: #f2f2f2;
+            padding: 20px;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            max-width: 600px;
+            margin: 0 auto;
+        }
+        h2 {
+            color: #333;
+        }
+        .actions {
+            margin-top: 20px;
+        }
+        .button {
+            padding: 10px 20px;
+            background-color: #ff6347;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            text-decoration: none; /* Remove default link underline */
+            transition: background-color 0.3s ease;
+            display: inline-block;
+        }
+        .button:hover {
+            background-color: #e74c3c;
+        }
+    </style>
+</head>
+<body>
+    <div class="confirmation">
+        <h2>Before you delete your account, could you please take a moment to tell us about any issues you've had? Your feedback will help us improve Dinosoft.</h2>
+        <div class="actions">
+            <!-- Use an <a> tag for the delete link -->
+            <a href="form-for-reporting-issues.html" class="button">Give Feedback</a>
+            <br>
+            <br>
+            <a href="account-deleted-confirmed.html" class="button">Delete My Account</a>
+        </div>
+    </div>
+
+    <script>
+        function goBack() {
+            window.history.back();
+        }
+    </script>
+</body>
+</html>

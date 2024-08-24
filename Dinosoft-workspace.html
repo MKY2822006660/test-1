@@ -1,0 +1,268 @@
+<body>
+    <html>
+    <head>
+    
+    </head>  
+    </html>
+    </body>
+
+
+
+
+
+<!DOCTYPE html>
+<html>
+<head>
+    <body>
+    <title>Dinosoft Workspaces</title>
+    <link rel="icon" type="image/x-icon" href="DINOSOFT-LOGO.jpg">
+</body>
+
+        <h1>
+            Welcome to Dinosoft Workspace
+        </h1>
+          
+
+  
+
+    </body>
+<style>
+
+
+  .workspace-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+  }
+
+  .glow-on-hover {
+    width: 150px;
+    height: 200px;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    position: relative;
+    z-index: 1;
+    border-radius: 10px;
+    overflow: hidden;
+    margin: 10px;
+  }
+
+  .glow-on-hover:before {
+    content: '';
+    background: linear-gradient(45deg, #ff0000, #ff7300, #fffb00, #48ff00, #00ffd5, #002bff, #7a00ff, #ff00c8, #ff0000);
+    position: absolute;
+    top: -2px;
+    left: -2px;
+    background-size: 400%;
+    z-index: 0;
+    filter: blur(5px);
+    width: calc(100% + 4px);
+    height: calc(100% + 4px);
+    animation: glowing 20s linear infinite;
+    opacity: 0;
+    transition: opacity .3s ease-in-out;
+    border-radius: 10px;
+  }
+
+  .glow-on-hover:active {
+    color: #fff;
+  }
+
+  .glow-on-hover:active:after {
+    background: transparent;
+  }
+
+  .glow-on-hover:hover:before {
+    opacity: 1;
+  }
+
+  .glow-on-hover:after {
+    z-index: -1;
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: #000;
+    left: 0;
+    top: 0;
+    border-radius: 10px;
+  }
+
+  .button-text {
+    position: relative;
+    color: #fff;
+    z-index: 2;
+    text-align: center;
+    font-size: 18px;
+    line-height: 50px;
+  }
+
+  .icon-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .icon-image {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    margin-bottom: 5px;
+  }
+
+  .plus-sign {
+    font-size: 36px;
+    color: #000;
+    cursor: pointer;
+    display: none;
+  }
+
+  @keyframes glowing {
+    0% { background-position: 0 0; }
+    50% { background-position: 400% 0; }
+    100% { background-position: 0 0; }
+  }
+</style>
+</head>
+<body>
+
+<div class="workspace-container">
+  <button class="glow-on-hover" onclick="toggleWorkspace(1)">
+    <div class="icon-container">
+      <img src="https://cdn4.iconfinder.com/data/icons/web-ui-color/128/Folder-512.png" alt="Workspace 1" class="icon-image" id="workspace1Icon">
+      <span class="button-text"><a href="Dinosoft-Workspace-1.html">Workspace 1</a>
+</b></span>
+    </div>
+  </button>
+
+  <button class="glow-on-hover" onclick="toggleWorkspace(2)">
+    <div class="icon-container">
+      <img src="https://cdn4.iconfinder.com/data/icons/web-ui-color/128/Folder-512.png" alt="Workspace 2" class="icon-image" id="workspace2Icon">
+      <span class="button-text"><a href="Dinosoft-workspace-2.html">Workspace 2</a>
+    </div>
+  </button>
+
+  <button class="glow-on-hover" onclick="toggleWorkspace(3)">
+    <div class="icon-container">
+      <img src="https://cdn4.iconfinder.com/data/icons/web-ui-color/128/Folder-512.png" alt="Workspace 3" class="icon-image" id="workspace3Icon">
+     <span class="button-text"><a href="dinosoft-workspace-3.html">Workspace 3</a>
+    </div>
+  </button>
+
+  <button class="glow-on-hover" onclick="toggleWorkspace(4)">
+    <div class="icon-container">
+      <img src="https://cdn4.iconfinder.com/data/icons/web-ui-color/128/Folder-512.png" alt="Workspace 4" class="icon-image" id="workspace4Icon">
+      <span class="button-text"><a href="dinosoft-workspace-4.html">Workspace 4</a>
+    </div>
+  </button>
+
+  <button class="glow-on-hover" onclick="toggleWorkspace(5)">
+    <div class="icon-container">
+      <img src="https://cdn4.iconfinder.com/data/icons/web-ui-color/128/Folder-512.png" alt="Workspace 5" class="icon-image" id="workspace5Icon">
+      <span class="button-text"><a href="dinosoft-workspace-5.html">Workspace 5</a>
+      
+      <div class="workspace-container">
+  <button class="glow-on-hover" onclick="toggleWorkspace(6)">
+    <div class="icon-container">
+      <img src="https://cdn4.iconfinder.com/data/icons/web-ui-color/128/Folder-512.png" alt="Workspace 6" class="icon-image" id="workspace1Icon">
+      <span class="button-text"><a href="dinosoft-workspace-6.html">Workspace 6</a>
+    </div>
+  </button>
+
+  <button class="glow-on-hover" onclick="toggleWorkspace(7)">
+    <div class="icon-container">
+      <img src="https://cdn4.iconfinder.com/data/icons/web-ui-color/128/Folder-512.png" alt="Workspace 7" class="icon-image" id="workspace2Icon">
+      <span class="button-text"><a href="dinosoft-workspace-7.html">Workspace 7</a>
+    </div>
+  </button>
+
+  <button class="glow-on-hover" onclick="toggleWorkspace(8)">
+    <div class="icon-container">
+      <img src="https://cdn4.iconfinder.com/data/icons/web-ui-color/128/Folder-512.png" alt="Workspace 8" class="icon-image" id="workspace4Icon">
+      <span class="button-text"><a href="dinosoft-workspace-8.html">Workspace 8</a>
+    </div>
+  </button>
+
+  <button class="glow-on-hover" onclick="toggleWorkspace(9)">
+    <div class="icon-container">
+      <img src="https://cdn4.iconfinder.com/data/icons/web-ui-color/128/Folder-512.png" alt="Workspace 9" class="icon-image" id="workspace4Icon">
+      <span class="button-text"><a href="dinosoft-workspace-9.html">Workspace 9</a>
+    </div>
+  </button>
+
+  <button class="glow-on-hover" onclick="toggleWorkspace(10)">
+    <div class="icon-container">
+      <img src="https://cdn4.iconfinder.com/data/icons/web-ui-color/128/Folder-512.png" alt="Workspace 10" class="icon-image" id="workspace5Icon">
+      <span class="button-text"><a href="dinosoft-workspace-10.html">Workspace 10</a>
+    </div>
+  </button>
+</div>
+
+<div class="plus-sign" id="plusSign" onclick="showAddWorkspaceForm()">+</div>
+
+
+
+<script>
+
+
+    // Show workspace content
+    document.getElementById('workspaceContent').style.display = 'block';
+
+    // Implement additional logic for each workspace content
+    // For demonstration, we'll update the content based on the selected workspace
+    document.getElementById('workspaceContent').innerHTML = `<p></p>`;
+  }
+
+  function showAddWorkspaceForm() {
+    const linkName = prompt('Enter the link name:');
+    const linkURL = prompt('Enter the link URL:');
+    const useCustomImage = confirm('Do you want to upload a custom image for the icon?');
+
+    if (useCustomImage) {
+      uploadIcon('plusSign');
+    } else {
+      const defaultIcon = 'plus-sign-icon.png'; // replace with your default icon
+      const icon = document.getElementById('plusSign');
+      icon.innerHTML = `
+        <div class="icon-container">
+          <img src="${defaultIcon}" alt="Plus Sign" class="icon-image" id="plusSignIcon">
+          <span class="button-text"><b>${linkName}</b></span>
+        </div>
+      `;
+
+      // Add an event listener to the icon for redirection
+      icon.onclick = function () {
+        window.location.href = linkURL;
+      };
+    }
+
+    // You can use the linkName, linkURL, and useCustomImage variables to perform further actions.
+  }
+
+  function uploadIcon(buttonId) {
+    const input = document.createElement('input');
+    input.type = 'file';
+    input.accept = 'image/*';
+
+    input.addEventListener('change', function () {
+      const file = input.files[0];
+      if (file) {
+        const reader = new FileReader();
+        reader.onload = function (e) {
+          const icon = document.getElementById(buttonId + 'Icon');
+          icon.src = e.target.result;
+        };
+        reader.readAsDataURL(file);
+      }
+    });
+
+    input.click();
+  }
+</script>
+
+<head>
+    <link rel="icon" type="image/x-icon" href='https://i.ibb.co/VmZLnr1/icon-12.jpg'>
+</head>
+</body>
+</html>
